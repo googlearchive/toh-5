@@ -1,0 +1,14 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "hero.dart",
+        "5": false
+      }
+    ],
+    "6": "mock_heroes.dart"
+  },
+  "type": {},
+  "alias": {}
+}
