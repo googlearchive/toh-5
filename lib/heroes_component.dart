@@ -20,7 +20,7 @@ class HeroesComponent implements OnInit {
 
   HeroesComponent(this._heroService, this._router);
 
-  Future getHeroes() async {
+  Future<Null> getHeroes() async {
     heroes = await _heroService.getHeroes();
   }
 
@@ -32,7 +32,7 @@ class HeroesComponent implements OnInit {
     selectedHero = hero;
   }
 
-  Future gotoDetail() => _router.navigate([
+  Future<Null> gotoDetail() => _router.navigate([
         'HeroDetail',
         {'id': selectedHero.id.toString()}
       ]);

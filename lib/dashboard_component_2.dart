@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:angular2/core.dart';
 
 import 'hero.dart';
@@ -10,8 +12,9 @@ class DashboardComponent implements OnInit {
 
   DashboardComponent(this._heroService);
 
-  ngOnInit() async =>
-      heroes = (await _heroService.getHeroes()).getRange(1, 5).toList();
+  Future<Null> ngOnInit() async {
+    heroes = (await _heroService.getHeroes()).getRange(1, 5).toList();
+  }
 
   gotoDetail() {/* not implemented yet */}
 }

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:html';
 
 import 'package:angular2/core.dart';
@@ -17,12 +18,13 @@ class HeroDetailComponent implements OnInit {
 
   HeroDetailComponent(this._heroService, this._routeParams);
 
-  ngOnInit() async {
-    var id = int.parse(_routeParams.get('id'));
-    hero = await (_heroService.getHero(id));
+  Future<Null> ngOnInit() async {
+    var idString = _routeParams.get('id');
+    var id = int.parse(idString, onError: (_) => null);
+    if (id != null) hero = await (_heroService.getHero(id));
   }
 
-  goBack() {
+  void goBack() {
     window.history.back();
   }
 }
