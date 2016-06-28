@@ -19,7 +19,7 @@ class DashboardComponent implements OnInit {
   DashboardComponent(this._heroService, this._router);
 
   Future<Null> ngOnInit() async {
-    heroes = (await _heroService.getHeroes()).getRange(1, 5).toList();
+    heroes = (await _heroService.getHeroes()).skip(1).take(4).toList();
   }
 
   void gotoDetail(Hero hero) {
