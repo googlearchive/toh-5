@@ -4,14 +4,12 @@ import 'package:angular2/core.dart';
 import 'package:angular2/router.dart';
 
 import 'hero.dart';
-import 'hero_detail_component.dart';
 import 'hero_service.dart';
 
 @Component(
     selector: 'my-heroes',
     templateUrl: 'heroes_component.html',
-    styleUrls: const ['heroes_component.css'],
-    directives: const [HeroDetailComponent])
+    styleUrls: const ['heroes_component.css'])
 class HeroesComponent implements OnInit {
   final Router _router;
   final HeroService _heroService;

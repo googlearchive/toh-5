@@ -1,3 +1,4 @@
+/* #docregion */
 [class*='col-'] {
   float: left;
 }

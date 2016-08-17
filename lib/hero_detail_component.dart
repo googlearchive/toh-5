@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:html';
+import 'dart:html' show window;
 
 import 'package:angular2/core.dart';
 import 'package:angular2/router.dart';
@@ -20,7 +20,7 @@ class HeroDetailComponent implements OnInit {
 
   Future<Null> ngOnInit() async {
     var idString = _routeParams.get('id');
-    var id = int.parse(idString, onError: (_) => null);
+    var id = int.parse(idString ?? '', onError: (_) => null);
     if (id != null) hero = await (_heroService.getHero(id));
   }
 
