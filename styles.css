@@ -1,4 +1,3 @@
-/* #docregion , quickstart, toh */
 /* Master Styles */
 h1 {
   color: #369;
@@ -13,12 +12,10 @@ h2, h3 {
 body {
   margin: 2em;
 }
-/* #enddocregion quickstart */
 body, input[text], button {
   color: #888;
   font-family: Cambria, Georgia;
 }
-/* #enddocregion toh */
 a {
   cursor: pointer;
   cursor: hand;
@@ -138,7 +135,6 @@ nav a.active {
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
-/* #docregion toh */
 /* everywhere else */
 * {
   font-family: Arial, Helvetica, sans-serif;
