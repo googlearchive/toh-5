@@ -19,10 +19,6 @@
         "5": false
       },
       {
-        "1": "hero_detail_component.dart",
-        "5": false
-      },
-      {
         "1": "hero_service.dart",
         "5": false
       }
@@ -42,11 +38,6 @@
         ],
         "6": [
           "OnInit"
-        ],
-        "7": [
-          {
-            "2": "HeroDetailComponent"
-          }
         ]
       }
     ],
@@ -65,12 +56,8 @@
         "4": "i2"
       },
       {
-        "1": "hero_detail_component.template.dart",
-        "4": "i3"
-      },
-      {
         "1": "hero_service.template.dart",
-        "4": "i4"
+        "4": "i3"
       }
     ]
   },

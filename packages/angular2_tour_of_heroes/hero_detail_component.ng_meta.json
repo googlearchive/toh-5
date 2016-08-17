@@ -8,6 +8,9 @@
       },
       {
         "1": "dart:html",
+        "2": [
+          "window"
+        ],
         "5": false
       },
       {

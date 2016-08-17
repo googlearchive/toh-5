@@ -21,10 +21,27 @@
     ],
     "5": [
       {
-        "1": "AppComponent",
+        "1": "Bogus",
         "7": [
           {
             "2": "HeroesComponent"
+          }
+        ]
+      },
+      {
+        "1": "AppComponent",
+        "4": [
+          {
+            "1": "RouteConfig",
+            "2": [
+              "const [const Route(path: '/heroes', name: 'Heroes', component: HeroesComponent)]"
+            ],
+            "4": false
+          }
+        ],
+        "7": [
+          {
+            "2": "ROUTER_DIRECTIVES"
           }
         ]
       }
@@ -50,6 +67,72 @@
     ]
   },
   "type": {
+    "Bogus": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "my-app",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "Bogus",
+        "moduleUrl": "asset:angular2_tour_of_heroes/lib/app_component_1.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "      <h1>{{title}}</h1>\n      <my-heroes></my-heroes>",
+        "templateUrl": "asset:angular2_tour_of_heroes/lib/app_component_1.dart",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Type",
+              "name": "HeroService",
+              "moduleUrl": "asset:angular2_tour_of_heroes/lib/hero_service.dart",
+              "prefix": null,
+              "isHost": false,
+              "value": null,
+              "diDeps": []
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "HeroService",
+            "moduleUrl": "asset:angular2_tour_of_heroes/lib/hero_service.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": []
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        }
+      ],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
     "AppComponent": {
       "class": "Directive",
       "isComponent": true,
@@ -73,13 +156,44 @@
       "lifecycleHooks": [],
       "template": {
         "encapsulation": 2,
-        "template": "      <h1>{{title}}</h1>\n      <my-heroes></my-heroes>",
+        "template": "      <h1>{{title}}</h1>\n      <a [routerLink]=\"['Heroes']\">Heroes</a>\n      <router-outlet></router-outlet>",
         "templateUrl": "asset:angular2_tour_of_heroes/lib/app_component_1.dart",
         "styles": [],
         "styleUrls": [],
         "ngContentSelectors": []
       },
       "providers": [
+        {
+          "class": "Provider",
+          "token": {
+            "value": null,
+            "identifier": {
+              "class": "Type",
+              "name": "HeroService",
+              "moduleUrl": "asset:angular2_tour_of_heroes/lib/hero_service.dart",
+              "prefix": null,
+              "isHost": false,
+              "value": null,
+              "diDeps": []
+            },
+            "identifierIsInstance": false
+          },
+          "useClass": {
+            "class": "Type",
+            "name": "HeroService",
+            "moduleUrl": "asset:angular2_tour_of_heroes/lib/hero_service.dart",
+            "prefix": null,
+            "isHost": false,
+            "value": null,
+            "diDeps": []
+          },
+          "useExisting": null,
+          "useValue": null,
+          "useFactory": null,
+          "useProperty": null,
+          "multi": false,
+          "deps": null
+        },
         {
           "class": "Provider",
           "token": {
@@ -443,37 +557,6 @@
             "class": "Type",
             "name": "BrowserPlatformLocation",
             "moduleUrl": "asset:angular2/lib/src/platform/browser/location/browser_platform_location.dart",
-            "prefix": null,
-            "isHost": false,
-            "value": null,
-            "diDeps": []
-          },
-          "useExisting": null,
-          "useValue": null,
-          "useFactory": null,
-          "useProperty": null,
-          "multi": false,
-          "deps": null
-        },
-        {
-          "class": "Provider",
-          "token": {
-            "value": null,
-            "identifier": {
-              "class": "Type",
-              "name": "HeroService",
-              "moduleUrl": "asset:angular2_tour_of_heroes/lib/hero_service.dart",
-              "prefix": null,
-              "isHost": false,
-              "value": null,
-              "diDeps": []
-            },
-            "identifierIsInstance": false
-          },
-          "useClass": {
-            "class": "Type",
-            "name": "HeroService",
-            "moduleUrl": "asset:angular2_tour_of_heroes/lib/hero_service.dart",
             "prefix": null,
             "isHost": false,
             "value": null,
