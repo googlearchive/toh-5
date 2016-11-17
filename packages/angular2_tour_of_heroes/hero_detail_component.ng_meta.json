@@ -7,18 +7,15 @@
         "5": false
       },
       {
-        "1": "dart:html",
-        "2": [
-          "window"
-        ],
-        "5": false
-      },
-      {
         "1": "package:angular2/core.dart",
         "5": false
       },
       {
         "1": "package:angular2/router.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/platform/common.dart",
         "5": false
       },
       {
@@ -41,6 +38,10 @@
           {
             "1": "RouteParams",
             "4": "_routeParams"
+          },
+          {
+            "1": "Location",
+            "4": "_location"
           }
         ],
         "6": [
@@ -59,12 +60,16 @@
         "4": "i1"
       },
       {
-        "1": "hero.template.dart",
+        "1": "package:angular2/platform/common.template.dart",
         "4": "i2"
       },
       {
-        "1": "hero_service.template.dart",
+        "1": "hero.template.dart",
         "4": "i3"
+      },
+      {
+        "1": "hero_service.template.dart",
+        "4": "i4"
       }
     ]
   },
@@ -111,6 +116,28 @@
                 "class": "Identifier",
                 "name": "RouteParams",
                 "moduleUrl": "asset:angular2/lib/src/router/instruction.dart",
+                "prefix": null,
+                "value": null
+              },
+              "identifierIsInstance": false
+            },
+            "query": null,
+            "viewQuery": null,
+            "value": null,
+            "isAttribute": false,
+            "isSelf": false,
+            "isHost": false,
+            "isSkipSelf": false,
+            "isOptional": false,
+            "isValue": false
+          },
+          {
+            "token": {
+              "value": null,
+              "identifier": {
+                "class": "Identifier",
+                "name": "Location",
+                "moduleUrl": "asset:angular2/lib/src/platform/browser/location/location.dart",
                 "prefix": null,
                 "value": null
               },
