@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 
 import 'hero.dart';
@@ -10,7 +10,7 @@ import 'hero_service.dart';
   selector: 'my-dashboard',
   templateUrl: 'dashboard_component.html',
   styleUrls: const ['dashboard_component.css'],
-  directives: const [ROUTER_DIRECTIVES],
+  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES],
 )
 class DashboardComponent implements OnInit {
   List<Hero> heroes;
