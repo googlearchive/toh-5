@@ -1,10 +1,10 @@
 import 'package:angular2/angular2.dart';
 import 'package:angular2/router.dart';
 
-import 'dashboard_component.dart';
-import 'hero_detail_component.dart';
-import 'hero_service.dart';
-import 'heroes_component.dart';
+import 'src/dashboard_component.dart';
+import 'src/hero_detail_component.dart';
+import 'src/hero_service.dart';
+import 'src/heroes_component.dart';
 
 @Component(
     selector: 'my-app',
