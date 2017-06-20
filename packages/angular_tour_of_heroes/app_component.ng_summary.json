@@ -11,19 +11,19 @@
         "5": false
       },
       {
-        "1": "dashboard_component.dart",
+        "1": "src/dashboard_component.dart",
         "5": false
       },
       {
-        "1": "hero_detail_component.dart",
+        "1": "src/hero_detail_component.dart",
         "5": false
       },
       {
-        "1": "hero_service.dart",
+        "1": "src/hero_service.dart",
         "5": false
       },
       {
-        "1": "heroes_component.dart",
+        "1": "src/heroes_component.dart",
         "5": false
       }
     ],
