@@ -54,7 +54,7 @@ void selectedHeroTests() {
   const targetHero = const {'id': 15, 'name': 'Magneta'};
 
   setUp(() async {
-    await po.clickHero(4);
+    await po.selectHero(4);
     po = await fixture.resolvePageObject(HeroesPO);
   });
 
@@ -78,7 +78,7 @@ void selectedHeroTests() {
   });
 
   test('select another hero', () async {
-    await po.clickHero(0);
+    await po.selectHero(0);
     po = await fixture.resolvePageObject(HeroesPO);
     final heroData = {'id': 11, 'name': 'Mr. Nice'};
     expect(await po.selectedHero, heroData);
