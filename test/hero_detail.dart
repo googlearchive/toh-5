@@ -32,14 +32,14 @@ void main() {
 
   tearDown(disposeAnyRunningTest);
 
-  test('null initial @Input() hero has an empty view', () async {
+  test('No initial hero results in an empty view', () async {
     fixture = await testBed.create();
     expect(fixture.rootElement.text.trim(), '');
   });
 
   const targetHero = const {'id': 15, 'name': 'Magneta'};
 
-  group('${targetHero['name']} initial @Input() hero:', () {
+  group('${targetHero['name']} initial hero:', () {
     final Map updatedHero = {'id': targetHero['id']};
 
     setUp(() async {
@@ -50,7 +50,7 @@ void main() {
       po = await fixture.resolvePageObject(HeroDetailPO);
     });
 
-    test('shows hero details', () async {
+    test('show hero details', () async {
       expect(await po.heroFromDetails, targetHero);
     });
 
