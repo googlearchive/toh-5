@@ -14,19 +14,24 @@ import 'src/heroes_component.dart';
       <a [routerLink]="['Dashboard']">Dashboard</a>
       <a [routerLink]="['Heroes']">Heroes</a>
     </nav>
-    <router-outlet></router-outlet>''',
+    <router-outlet></router-outlet>
+  ''',
   styleUrls: const ['app_component.css'],
   directives: const [ROUTER_DIRECTIVES],
-  providers: const [HeroService, ROUTER_PROVIDERS],
+  providers: const [HeroService],
 )
 @RouteConfig(const [
+  const Redirect(path: '/', redirectTo: const ['Dashboard']),
   const Route(
-      path: '/dashboard',
-      name: 'Dashboard',
-      component: DashboardComponent,
-      useAsDefault: true),
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: DashboardComponent,
+  ),
   const Route(
-      path: '/detail/:id', name: 'HeroDetail', component: HeroDetailComponent),
+    path: '/detail/:id',
+    name: 'HeroDetail',
+    component: HeroDetailComponent,
+  ),
   const Route(path: '/heroes', name: 'Heroes', component: HeroesComponent)
 ])
 class AppComponent {
