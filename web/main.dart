@@ -4,8 +4,6 @@ import 'package:angular_tour_of_heroes/app_component.dart';
 
 void main() {
   bootstrap(AppComponent, [
-    ROUTER_PROVIDERS,
-    // Remove next line in production
-    provide(LocationStrategy, useClass: HashLocationStrategy),
+    routerProvidersHash // You can use routerProviders in production
   ]);
 }

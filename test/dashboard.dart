@@ -1,41 +1,35 @@
 @Tags(const ['aot'])
 @TestOn('browser')
+import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
-import 'package:angular_tour_of_heroes/app_component.dart';
 import 'package:angular_tour_of_heroes/src/dashboard_component.dart';
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 import 'dashboard_po.dart';
+import 'matchers.dart';
 
 NgTestFixture<DashboardComponent> fixture;
 DashboardPO po;
 
-final mockPlatformLocation = new MockPlatformLocation();
+final mockRouter = new MockRouter();
 
-class MockPlatformLocation extends Mock implements PlatformLocation {}
+class MockRouter extends Mock implements Router {}
 
 @AngularEntrypoint()
 void main() {
-  final providers = new List.from(ROUTER_PROVIDERS)
-    ..addAll([
-      provide(APP_BASE_HREF, useValue: '/'),
-      provide(PlatformLocation, useValue: mockPlatformLocation),
-      provide(ROUTER_PRIMARY_COMPONENT, useValue: AppComponent),
-      HeroService,
-    ]);
-  final testBed = new NgTestBed<DashboardComponent>().addProviders(providers);
+  final testBed = new NgTestBed<DashboardComponent>().addProviders([
+    provide(APP_BASE_HREF, useValue: '/'),
+    HeroService,
+    routerProviders,
+    provide(Router, useValue: mockRouter),
+  ]);
 
-  setUpAll(() async {
-    when(mockPlatformLocation.pathname).thenReturn('');
-    when(mockPlatformLocation.search).thenReturn('');
-    when(mockPlatformLocation.hash).thenReturn('');
-    when(mockPlatformLocation.getBaseHrefFromDOM()).thenReturn('');
-  });
+  // FIXME(docs): we don't need setUpAll() anymore
 
   setUp(() async {
     fixture = await testBed.create();
@@ -54,9 +48,11 @@ void main() {
   });
 
   test('select hero and navigate to detail', () async {
-    clearInteractions(mockPlatformLocation);
+    clearInteractions(mockRouter);
     await po.selectHero(3);
-    final c = verify(mockPlatformLocation.pushState(any, any, captureAny));
-    expect(c.captured.single, '/detail/15');
+    var c = verify(mockRouter.navigate(captureAny, captureAny));
+    expect(c.captured[0], '/detail/15');
+    expect(c.captured[1], new IsNavParams());
+    expect(c.captured.length, 2);
   });
 }
