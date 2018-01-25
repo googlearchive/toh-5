@@ -1,6 +1,4 @@
-@Tags(const ['aot'])
 @TestOn('browser')
-import 'dart:async';
 
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
@@ -20,7 +18,6 @@ final mockRouter = new MockRouter();
 
 class MockRouter extends Mock implements Router {}
 
-@AngularEntrypoint()
 void main() {
   final testBed = new NgTestBed<DashboardComponent>().addProviders([
     provide(APP_BASE_HREF, useValue: '/'),

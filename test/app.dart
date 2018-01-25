@@ -1,5 +1,3 @@
-import 'dart:html';
-@Tags(const ['aot'])
 @TestOn('browser')
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
