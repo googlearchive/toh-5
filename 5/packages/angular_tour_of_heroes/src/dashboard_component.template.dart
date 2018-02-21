@@ -12,13 +12,11 @@ import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'hero.dart';
 import 'hero_service.dart';
-// Required for initReflector().
 import 'package:angular/src/di/reflector.dart' as _ngRef;
 import 'hero.template.dart' as _ref0;
 import 'hero_service.template.dart' as _ref1;
 import 'package:angular/angular.template.dart' as _ref2;
 import 'package:angular_router/angular_router.template.dart' as _ref3;
-
 import 'package:angular_tour_of_heroes/src/dashboard_component.css.shim.dart' as import0;
 import 'package:angular/src/core/linker/app_view.dart';
 import 'dashboard_component.dart' as import2;
@@ -201,12 +199,10 @@ void initReflector() {
     return;
   }
   _visited = true;
+
+  _ngRef.registerComponent(DashboardComponent, DashboardComponentNgFactory);
   _ref0.initReflector();
   _ref1.initReflector();
   _ref2.initReflector();
   _ref3.initReflector();
-  _ngRef.registerComponent(
-    DashboardComponent,
-    DashboardComponentNgFactory,
-  );
 }
