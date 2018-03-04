@@ -25,7 +25,7 @@ void main() {
 
   setUp(() async {
     fixture = await testBed.create();
-    po = await fixture.resolvePageObject(HeroesPO);
+    po = await new HeroesPO().resolve(fixture);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -53,7 +53,7 @@ void selectedHeroTests() {
 
   setUp(() async {
     await po.selectHero(4);
-    po = await fixture.resolvePageObject(HeroesPO);
+    po = await new HeroesPO().resolve(fixture);
   });
 
   test('is selected', () async {
@@ -67,13 +67,13 @@ void selectedHeroTests() {
 
   test('go to detail', () async {
     await po.gotoDetail();
-    final c = verify(mockRouter.navigate(captureAny));
+    final c = verify(mockRouter.navigate(typed(captureAny)));
     expect(c.captured.single, '/detail/${targetHero['id']}');
   });
 
   test('select another hero', () async {
     await po.selectHero(0);
-    po = await fixture.resolvePageObject(HeroesPO);
+    po = await new HeroesPO().resolve(fixture);
     final heroData = {'id': 11, 'name': 'Mr. Nice'};
     expect(await po.selectedHero, heroData);
   });

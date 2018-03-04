@@ -3,25 +3,25 @@ import 'dart:async';
 import 'package:pageloader/objects.dart';
 import 'utils.dart';
 
-class HeroesPO {
+class HeroesPO extends PageObjectBase {
   @FirstByCss('h2')
-  PageLoaderElement _title;
+  PageLoaderElement get _title => q('h2');
 
   @ByTagName('li')
-  List<PageLoaderElement> _heroes;
+  List<PageLoaderElement> get _heroes => qq('li');
 
   @ByTagName('li')
   @WithClass('selected')
   @optional
-  PageLoaderElement _selectedHero;
+  PageLoaderElement get _selectedHero => q('li.selected');
 
   @FirstByCss('div h2')
   @optional
-  PageLoaderElement _miniDetailHeading;
+  PageLoaderElement get _miniDetailHeading => q('div h2');
 
   @ByTagName('button')
   @optional
-  PageLoaderElement _gotoDetail;
+  PageLoaderElement get _gotoDetail => q('button');
 
   Future<String> get title => _title.visibleText;
 

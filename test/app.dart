@@ -29,7 +29,7 @@ void main() {
     await fixture.update((component) => router = component.router);
     await router.navigate('/');
     await fixture.update((c) {});
-    appPO = await fixture.resolvePageObject(AppPO);
+    appPO = await new AppPO().resolve(fixture);
   });
 
   tearDown(disposeAnyRunningTest);
@@ -40,9 +40,7 @@ void main() {
   group('Select Heroes:', () {
     setUp(() async {
       await appPO.selectTab(1);
-      await fixture.update((c) {});
-      appPO = await fixture.resolvePageObject(AppPO);
-      // print(fixture.rootElement.innerHtml);
+      appPO = await new AppPO().resolve(fixture);
     });
 
     test('route', () async {
@@ -57,8 +55,9 @@ void main() {
   group('Select Dashboard:', () {
     setUp(() async {
       await appPO.selectTab(1);
+      await fixture.update();
       await appPO.selectTab(0);
-      appPO = await fixture.resolvePageObject(AppPO);
+      appPO = await new AppPO().resolve(fixture);
     });
 
     dashboardTests();

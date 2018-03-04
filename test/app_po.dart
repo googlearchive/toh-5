@@ -3,20 +3,20 @@ import 'dart:async';
 import 'package:pageloader/objects.dart';
 import 'utils.dart';
 
-class AppPO {
+class AppPO extends PageObjectBase {
   @ByTagName('h1')
-  PageLoaderElement _h1;
+  PageLoaderElement get _h1 => q('h1');
 
   @ByCss('nav a')
-  List<PageLoaderElement> _tabLinks;
+  List<PageLoaderElement> get _tabLinks => qq('nav a');
 
   @ByTagName('my-dashboard')
   @optional
-  PageLoaderElement _myDashboard;
+  PageLoaderElement get _myDashboard => q('my-dashboard');
 
   @ByTagName('my-heroes')
   @optional
-  PageLoaderElement _myHeroes;
+  PageLoaderElement get _myHeroes => q('my-heroes');
 
   Future<String> get pageTitle => _h1.visibleText;
 

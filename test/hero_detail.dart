@@ -44,7 +44,7 @@ void main() {
 
     setUp(() async {
       await fixture.update((c) => c.onActivate(null, mockRouterState));
-      po = await fixture.resolvePageObject(HeroDetailPO);
+      po = await new HeroDetailPO().resolve(fixture);
     });
 
     test('show hero details', () async {
