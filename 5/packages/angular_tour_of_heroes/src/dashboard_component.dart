@@ -3,14 +3,15 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
+import 'route_paths.dart' as paths;
 import 'hero.dart';
 import 'hero_service.dart';
 
 @Component(
   selector: 'my-dashboard',
   templateUrl: 'dashboard_component.html',
-  styleUrls: const ['dashboard_component.css'],
-  directives: const [coreDirectives, routerDirectives],
+  styleUrls: ['dashboard_component.css'],
+  directives: [coreDirectives, routerDirectives],
 )
 class DashboardComponent implements OnInit {
   List<Hero> heroes;
@@ -19,7 +20,10 @@ class DashboardComponent implements OnInit {
 
   DashboardComponent(this._heroService);
 
-  Future<Null> ngOnInit() async {
-    heroes = (await _heroService.getHeroes()).skip(1).take(4).toList();
+  String heroUrl(int id) =>
+      paths.hero.toUrl(parameters: {paths.idParam: id.toString()});
+
+  Future<void> ngOnInit() async {
+    heroes = (await _heroService.getAll()).skip(1).take(4).toList();
   }
 }

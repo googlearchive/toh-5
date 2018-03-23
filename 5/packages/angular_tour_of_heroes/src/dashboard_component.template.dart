@@ -8,6 +8,7 @@ export 'dashboard_component.dart';
 import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
+import 'route_paths.dart' as paths;
 import 'hero.dart';
 import 'hero_service.dart';
 import 'package:angular/src/di/reflector.dart' as _ngRef;
@@ -15,6 +16,7 @@ import 'hero.template.dart' as _ref0;
 import 'hero_service.template.dart' as _ref1;
 import 'package:angular/angular.template.dart' as _ref2;
 import 'package:angular_router/angular_router.template.dart' as _ref3;
+import 'route_paths.template.dart' as _ref4;
 import 'package:angular_tour_of_heroes/src/dashboard_component.css.shim.dart' as import0;
 import 'package:angular/src/core/linker/app_view.dart';
 import 'dashboard_component.dart' as import2;
@@ -43,14 +45,15 @@ class ViewDashboardComponent0 extends AppView<import2.DashboardComponent> {
   import5.NgFor _NgFor_3_9;
   var _expr_0;
   static RenderComponentType _renderType;
-  ViewDashboardComponent0(AppView<dynamic> parentView, num parentIndex) : super(import7.ViewType.COMPONENT, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
+  ViewDashboardComponent0(AppView<dynamic> parentView, int parentIndex) : super(import7.ViewType.COMPONENT, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
     rootEl = import3.document.createElement('my-dashboard');
     _renderType ??= import9.appViewUtils.createRenderType('', ViewEncapsulation.Emulated, styles$DashboardComponent);
     setupComponentType(_renderType);
   }
   @override
   ComponentRef<import2.DashboardComponent> build() {
-    final import3.HtmlElement parentRenderNode = initViewRoot(rootEl);
+    final _rootEl = rootEl;
+    final import3.HtmlElement parentRenderNode = initViewRoot(_rootEl);
     var doc = import3.document;
     _el_0 = createAndAppend(doc, 'h3', parentRenderNode);
     addShimE(_el_0);
@@ -86,7 +89,7 @@ class ViewDashboardComponent0 extends AppView<import2.DashboardComponent> {
   }
 }
 
-AppView<import2.DashboardComponent> viewFactory_DashboardComponent0(AppView<dynamic> parentView, num parentIndex) {
+AppView<import2.DashboardComponent> viewFactory_DashboardComponent0(AppView<dynamic> parentView, int parentIndex) {
   return new ViewDashboardComponent0(parentView, parentIndex);
 }
 
@@ -98,7 +101,7 @@ class _ViewDashboardComponent1 extends AppView<import2.DashboardComponent> {
   import3.Text _text_3;
   String _expr_0;
   var _expr_1;
-  _ViewDashboardComponent1(AppView<dynamic> parentView, num parentIndex) : super(import7.ViewType.EMBEDDED, {'\$implicit': null}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
+  _ViewDashboardComponent1(AppView<dynamic> parentView, int parentIndex) : super(import7.ViewType.EMBEDDED, {'\$implicit': null}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
     componentType = ViewDashboardComponent0._renderType;
   }
   @override
@@ -122,8 +125,9 @@ class _ViewDashboardComponent1 extends AppView<import2.DashboardComponent> {
 
   @override
   void detectChangesInternal() {
+    final import2.DashboardComponent _ctx = ctx;
     final import16.Hero local_hero = locals['\$implicit'];
-    final currVal_0 = import9.interpolate1('/detail/', local_hero.id, '');
+    final currVal_0 = _ctx.heroUrl(local_hero.id);
     if (!identical(_expr_0, currVal_0)) {
       _RouterLink_0_5.instance.routerLink = currVal_0;
       _expr_0 = currVal_0;
@@ -142,7 +146,7 @@ class _ViewDashboardComponent1 extends AppView<import2.DashboardComponent> {
   }
 }
 
-AppView<import2.DashboardComponent> viewFactory_DashboardComponent1(AppView<dynamic> parentView, num parentIndex) {
+AppView<import2.DashboardComponent> viewFactory_DashboardComponent1(AppView<dynamic> parentView, int parentIndex) {
   return new _ViewDashboardComponent1(parentView, parentIndex);
 }
 
@@ -151,7 +155,7 @@ const List<dynamic> styles$DashboardComponentHost = const [];
 class _ViewDashboardComponentHost0 extends AppView<dynamic> {
   ViewDashboardComponent0 _compView_0;
   import2.DashboardComponent _DashboardComponent_0_5;
-  _ViewDashboardComponentHost0(AppView<dynamic> parentView, num parentIndex) : super(import7.ViewType.HOST, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways);
+  _ViewDashboardComponentHost0(AppView<dynamic> parentView, int parentIndex) : super(import7.ViewType.HOST, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways);
   @override
   ComponentRef build() {
     _compView_0 = new ViewDashboardComponent0(this, 0);
@@ -177,7 +181,7 @@ class _ViewDashboardComponentHost0 extends AppView<dynamic> {
   }
 }
 
-AppView viewFactory_DashboardComponentHost0(AppView<dynamic> parentView, num parentIndex) {
+AppView viewFactory_DashboardComponentHost0(AppView<dynamic> parentView, int parentIndex) {
   return new _ViewDashboardComponentHost0(parentView, parentIndex);
 }
 
@@ -195,4 +199,5 @@ void initReflector() {
   _ref1.initReflector();
   _ref2.initReflector();
   _ref3.initReflector();
+  _ref4.initReflector();
 }
