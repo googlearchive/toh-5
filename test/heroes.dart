@@ -3,25 +3,24 @@
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
-import 'package:angular_tour_of_heroes/src/heroes_component.dart';
+import 'package:angular_tour_of_heroes/src/route_paths.dart' show idParam;
+import 'package:angular_tour_of_heroes/src/hero_list_component.dart';
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 import 'heroes_po.dart';
+import 'utils.dart';
 
-NgTestFixture<HeroesComponent> fixture;
+NgTestFixture<HeroListComponent> fixture;
 HeroesPO po;
 
-final mockRouter = new MockRouter();
-
-class MockRouter extends Mock implements Router {}
-
 void main() {
-  final testBed = new NgTestBed<HeroesComponent>().addProviders([
-    HeroService,
-    provide(Router, useValue: mockRouter),
-  ]);
+  final injector = new InjectorProbe();
+  final testBed = new NgTestBed<HeroListComponent>().addProviders([
+    const ClassProvider(HeroService),
+    const ClassProvider(Router, useClass: MockRouter),
+  ]).addInjector(injector.init);
 
   setUp(() async {
     fixture = await testBed.create();
@@ -31,7 +30,7 @@ void main() {
   tearDown(disposeAnyRunningTest);
 
   group('Basics:', basicTests);
-  group('Selected hero:', selectedHeroTests);
+  group('Selected hero:', () => selectedHeroTests(injector));
 }
 
 void basicTests() {
@@ -48,8 +47,8 @@ void basicTests() {
   });
 }
 
-void selectedHeroTests() {
-  const targetHero = const {'id': 15, 'name': 'Magneta'};
+void selectedHeroTests(InjectorProbe injector) {
+  const targetHero = {idParam: 15, 'name': 'Magneta'};
 
   setUp(() async {
     await po.selectHero(4);
@@ -67,14 +66,15 @@ void selectedHeroTests() {
 
   test('go to detail', () async {
     await po.gotoDetail();
+    final mockRouter = injector.get<MockRouter>(Router);
     final c = verify(mockRouter.navigate(typed(captureAny)));
-    expect(c.captured.single, '/detail/${targetHero['id']}');
+    expect(c.captured.single, '/heroes/${targetHero[idParam]}');
   });
 
   test('select another hero', () async {
     await po.selectHero(0);
     po = await new HeroesPO().resolve(fixture);
-    final heroData = {'id': 11, 'name': 'Mr. Nice'};
+    final heroData = {idParam: 11, 'name': 'Mr. Nice'};
     expect(await po.selectedHero, heroData);
   });
 }

@@ -41,7 +41,7 @@ class HeroesPO extends PageObjectBase {
     return matches[1];
   }
 
-  Future<Null> gotoDetail() => _gotoDetail.click();
+  Future<void> gotoDetail() => _gotoDetail.click();
 
   Map<String, dynamic> _heroDataFromLi(String liText) {
     final matches = new RegExp((r'^(\d+) (.*)$')).firstMatch(liText);
