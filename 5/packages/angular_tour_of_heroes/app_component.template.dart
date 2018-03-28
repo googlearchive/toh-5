@@ -102,7 +102,7 @@ class ViewAppComponent0 extends AppView<import2.AppComponent> {
   void detectChangesInternal() {
     final import2.AppComponent _ctx = ctx;
     bool firstCheck = (this.cdState == 0);
-    final currVal_0 = _ctx.routes.dashboard.path;
+    final currVal_0 = _ctx.routes.dashboard.toUrl();
     if (!identical(_expr_0, currVal_0)) {
       _RouterLink_3_5.instance.routerLink = currVal_0;
       _expr_0 = currVal_0;
@@ -110,7 +110,7 @@ class ViewAppComponent0 extends AppView<import2.AppComponent> {
     if (firstCheck) {
       (_RouterLinkActive_3_6.routerLinkActive = 'active');
     }
-    final currVal_2 = _ctx.routes.heroes.path;
+    final currVal_2 = _ctx.routes.heroes.toUrl();
     if (!identical(_expr_2, currVal_2)) {
       _RouterLink_5_5.instance.routerLink = currVal_2;
       _expr_2 = currVal_2;
