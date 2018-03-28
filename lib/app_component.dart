@@ -9,9 +9,9 @@ import 'src/hero_service.dart';
   template: '''
     <h1>{{title}}</h1>
     <nav>
-      <a [routerLink]="routes.dashboard.path"
+      <a [routerLink]="routes.dashboard.toUrl()"
          routerLinkActive="active">Dashboard</a>
-      <a [routerLink]="routes.heroes.path"
+      <a [routerLink]="routes.heroes.toUrl()"
          routerLinkActive="active">Heroes</a>
     </nav>
     <router-outlet [routes]="routes.all"></router-outlet>

@@ -4,9 +4,9 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_router/angular_router.dart';
 
-import 'route_paths.dart' show idParam;
 import 'hero.dart';
 import 'hero_service.dart';
+import 'route_paths.dart' as paths;
 
 @Component(
   selector: 'my-hero',
@@ -27,8 +27,8 @@ class HeroComponent implements OnActivate {
     if (id != null) hero = await (_heroService.get(id));
   }
 
-  int _getId(RouterState routerState) =>
-      int.parse(routerState.parameters[idParam] ?? '', onError: (_) => null);
+  int _getId(RouterState routerState) => int
+      .parse(routerState.parameters[paths.idParam] ?? '', onError: (_) => null);
 
   void goBack() => _location.back();
 }
