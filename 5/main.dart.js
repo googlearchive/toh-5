@@ -12882,7 +12882,7 @@ ao:function(){var t=this.r
 if(!(t==null))t.bH()},
 $asH:function(){return[A.b0]}}
 M.hI.prototype={
-O:function(){var t,s,r,q,p,o,n,m
+O:function(){var t,s,r,q,p,o,n
 t=document
 s=t.createElement("div")
 this.r=s
@@ -12893,16 +12893,14 @@ this.aa(s)
 s=t.createTextNode("")
 this.y=s
 this.x.appendChild(s)
-r=t.createTextNode(" details!")
-this.x.appendChild(r)
 s=S.q7(t,this.r)
 this.z=s
 this.a6(s)
 s=S.as(t,"label",this.z)
 this.Q=s
 this.aa(s)
-q=t.createTextNode("id:")
-this.Q.appendChild(q)
+r=t.createTextNode("id:")
+this.Q.appendChild(r)
 s=t.createTextNode("")
 this.ch=s
 this.z.appendChild(s)
@@ -12912,8 +12910,8 @@ this.a6(s)
 s=S.as(t,"label",this.cx)
 this.cy=s
 this.aa(s)
-p=t.createTextNode("name:")
-this.cy.appendChild(p)
+q=t.createTextNode("name:")
+this.cy.appendChild(q)
 s=S.as(t,"input",this.cx)
 this.db=s
 s.setAttribute("placeholder","name")
@@ -12922,26 +12920,26 @@ s=new O.cz(this.db,new O.jG(),new O.jH())
 this.dx=s
 s=[s]
 this.dy=s
-o=X.CP(s)
-o=new U.fo(null,null,null,!1,null,null,o,null,null)
-o.iR(s)
-this.fr=o
-o=S.as(t,"button",this.r)
-this.fx=o
-this.a6(o)
-n=t.createTextNode("Back")
-this.fx.appendChild(n)
-o=this.db;(o&&C.X).aO(o,"input",this.bi(this.giL()))
-o=this.db;(o&&C.X).aO(o,"blur",this.e1(this.dx.gl6()))
-o=this.fr.f
-o.toString
-m=new P.bI(o,[H.r(o,0)]).aU(this.bi(this.giN()))
-o=this.fx;(o&&C.P).aO(o,"click",this.e1(this.f.ghw()))
-this.bR([this.r],[m])
+p=X.CP(s)
+p=new U.fo(null,null,null,!1,null,null,p,null,null)
+p.iR(s)
+this.fr=p
+p=S.as(t,"button",this.r)
+this.fx=p
+this.a6(p)
+o=t.createTextNode("Back")
+this.fx.appendChild(o)
+p=this.db;(p&&C.X).aO(p,"input",this.bi(this.giL()))
+p=this.db;(p&&C.X).aO(p,"blur",this.e1(this.dx.gl6()))
+p=this.fr.f
+p.toString
+n=new P.bI(p,[H.r(p,0)]).aU(this.bi(this.giN()))
+p=this.fx;(p&&C.P).aO(p,"click",this.e1(this.f.ghw()))
+this.bR([this.r],[n])
 return},
-e9:function(a,b,c){if(a===C.bO&&11===b)return this.dx
-if(a===C.bq&&11===b)return this.dy
-if((a===C.bV||a===C.bT)&&11===b)return this.fr
+e9:function(a,b,c){if(a===C.bO&&10===b)return this.dx
+if(a===C.bq&&10===b)return this.dy
+if((a===C.bV||a===C.bT)&&10===b)return this.fr
 return c},
 a2:function(){var t,s,r,q
 t=this.f
@@ -13001,7 +12999,7 @@ s=document
 r=S.as(s,"h2",t)
 this.r=r
 this.aa(r)
-q=s.createTextNode("My Heroes")
+q=s.createTextNode("Heroes")
 this.r.appendChild(q)
 r=S.as(s,"ul",t)
 this.x=r
