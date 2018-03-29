@@ -35,7 +35,7 @@ void main() {
 
 void basicTests() {
   test('title', () async {
-    expect(await po.title, 'My Heroes');
+    expect(await po.title, 'Heroes');
   });
 
   test('hero count', () async {
