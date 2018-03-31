@@ -12,7 +12,7 @@ import 'hero_service.dart';
   templateUrl: 'hero_list_component.html',
   styleUrls: ['hero_list_component.css'],
   directives: [coreDirectives],
-  pipes: [COMMON_PIPES],
+  pipes: [commonPipes],
 )
 class HeroListComponent implements OnInit {
   final HeroService _heroService;
