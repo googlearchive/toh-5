@@ -48,7 +48,7 @@ class ViewHeroListComponent0 extends AppView<import2.HeroListComponent> {
   var _expr_0;
   import7.UpperCasePipe _pipe_uppercase_0;
   static RenderComponentType _renderType;
-  ViewHeroListComponent0(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.COMPONENT, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
+  ViewHeroListComponent0(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.component, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
     rootEl = import3.document.createElement('my-heroes');
     _renderType ??= import11.appViewUtils.createRenderType('', ViewEncapsulation.Emulated, styles$HeroListComponent);
     setupComponentType(_renderType);
@@ -65,12 +65,12 @@ class ViewHeroListComponent0 extends AppView<import2.HeroListComponent> {
     _el_2 = createAndAppend(doc, 'ul', parentRenderNode);
     _el_2.className = 'heroes';
     addShimC(_el_2);
-    var _anchor_3 = ngAnchor.clone(false);
+    final _anchor_3 = createViewContainerAnchor();
     _el_2.append(_anchor_3);
     _appEl_3 = new ViewContainer(3, 2, this, _anchor_3);
     TemplateRef _TemplateRef_3_8 = new TemplateRef(_appEl_3, viewFactory_HeroListComponent1);
     _NgFor_3_9 = new import5.NgFor(_appEl_3, _TemplateRef_3_8);
-    var _anchor_4 = ngAnchor.clone(false);
+    final _anchor_4 = createViewContainerAnchor();
     parentRenderNode.append(_anchor_4);
     _appEl_4 = new ViewContainer(4, null, this, _anchor_4);
     TemplateRef _TemplateRef_4_8 = new TemplateRef(_appEl_4, viewFactory_HeroListComponent2);
@@ -113,7 +113,7 @@ class _ViewHeroListComponent1 extends AppView<import2.HeroListComponent> {
   bool _expr_0;
   var _expr_1;
   var _expr_2;
-  _ViewHeroListComponent1(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.EMBEDDED, {'\$implicit': null}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
+  _ViewHeroListComponent1(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.embedded, {'\$implicit': null}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
     componentType = ViewHeroListComponent0._renderType;
   }
   @override
@@ -173,7 +173,7 @@ class _ViewHeroListComponent2 extends AppView<import2.HeroListComponent> {
   import3.ButtonElement _el_4;
   var _expr_0;
   String Function(String) _pipe_uppercase_0_0;
-  _ViewHeroListComponent2(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.EMBEDDED, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
+  _ViewHeroListComponent2(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.embedded, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
     componentType = ViewHeroListComponent0._renderType;
   }
   @override
@@ -217,7 +217,7 @@ const List<dynamic> styles$HeroListComponentHost = const [];
 class _ViewHeroListComponentHost0 extends AppView<dynamic> {
   ViewHeroListComponent0 _compView_0;
   import2.HeroListComponent _HeroListComponent_0_5;
-  _ViewHeroListComponentHost0(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.HOST, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways);
+  _ViewHeroListComponentHost0(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.host, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways);
   @override
   ComponentRef build() {
     _compView_0 = new ViewHeroListComponent0(this, 0);

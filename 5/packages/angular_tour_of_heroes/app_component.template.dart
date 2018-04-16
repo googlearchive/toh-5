@@ -56,7 +56,7 @@ class ViewAppComponent0 extends AppView<import2.AppComponent> {
   String _expr_2;
   var _expr_4;
   static RenderComponentType _renderType;
-  ViewAppComponent0(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.COMPONENT, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
+  ViewAppComponent0(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.component, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways) {
     rootEl = import3.document.createElement('my-app');
     _renderType ??= import11.appViewUtils.createRenderType('', ViewEncapsulation.Emulated, styles$AppComponent);
     setupComponentType(_renderType);
@@ -159,7 +159,7 @@ class _ViewAppComponentHost0 extends AppView<dynamic> {
   import18.Routes _Routes_0_5;
   import2.AppComponent _AppComponent_0_6;
   import19.HeroService __HeroService_0_7;
-  _ViewAppComponentHost0(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.HOST, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways);
+  _ViewAppComponentHost0(AppView<dynamic> parentView, int parentIndex) : super(import9.ViewType.host, {}, parentView, parentIndex, ChangeDetectionStrategy.CheckAlways);
   import19.HeroService get _HeroService_0_7 {
     if ((this.__HeroService_0_7 == null)) {
       (__HeroService_0_7 = new import19.HeroService());
