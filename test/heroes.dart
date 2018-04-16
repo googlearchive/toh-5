@@ -5,22 +5,30 @@ import 'package:angular_router/angular_router.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:angular_tour_of_heroes/src/route_paths.dart' show idParam;
 import 'package:angular_tour_of_heroes/src/hero_list_component.dart';
+import 'package:angular_tour_of_heroes/src/hero_list_component.template.dart'
+    as ng;
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
+import 'heroes.template.dart' as self;
 import 'heroes_po.dart';
 import 'utils.dart';
 
 NgTestFixture<HeroListComponent> fixture;
 HeroesPO po;
 
+@GenerateInjector([
+  const ClassProvider(HeroService),
+  const ClassProvider(Router, useClass: MockRouter),
+])
+final InjectorFactory rootInjector = self.rootInjector$Injector;
+
 void main() {
-  final injector = new InjectorProbe();
-  final testBed = new NgTestBed<HeroListComponent>().addProviders([
-    const ClassProvider(HeroService),
-    const ClassProvider(Router, useClass: MockRouter),
-  ]).addInjector(injector.init);
+  final injector = new InjectorProbe(rootInjector);
+  final testBed = NgTestBed.forComponent<HeroListComponent>(
+      ng.HeroListComponentNgFactory,
+      rootInjector: injector.factory);
 
   setUp(() async {
     fixture = await testBed.create();
@@ -74,7 +82,7 @@ void selectedHeroTests(InjectorProbe injector) {
   test('select another hero', () async {
     await po.selectHero(0);
     po = await new HeroesPO().resolve(fixture);
-    final heroData = {idParam: 11, 'name': 'Mr. Nice'};
+    final heroData = {'id': 11, 'name': 'Mr. Nice'};
     expect(await po.selected, heroData);
   });
 }

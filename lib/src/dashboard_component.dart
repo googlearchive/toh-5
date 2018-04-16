@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 
-import 'route_paths.dart' as paths;
 import 'hero.dart';
 import 'hero_service.dart';
+import 'route_paths.dart' as paths;
 
 @Component(
   selector: 'my-dashboard',

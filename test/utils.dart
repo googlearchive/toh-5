@@ -14,14 +14,15 @@ const /* List<Provider|List<Provider>> */ routerProvidersForTesting = const [
 //-----------------------------------------------------------------------------
 
 class InjectorProbe {
-  Injector injector;
+  InjectorFactory _parent;
+  Injector _injector;
 
-  // Signature must match the argument type of `NgTestBed.addInjector()`.
-  Injector init([Injector injector]) {
-    this.injector = injector;
-    return injector;
-  }
+  InjectorProbe(this._parent);
 
+  InjectorFactory get factory => _factory;
+  Injector get injector => _injector ??= _factory();
+
+  Injector _factory([Injector parent]) => _injector = _parent(parent);
   T get<T>(dynamic token) => injector?.get(token);
 }
 
