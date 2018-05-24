@@ -9,6 +9,7 @@ import 'package:angular_tour_of_heroes/src/dashboard_component.template.dart'
     as ng;
 import 'package:angular_tour_of_heroes/src/hero_service.dart';
 import 'package:mockito/mockito.dart';
+import 'package:pageloader/html.dart';
 import 'package:test/test.dart';
 
 import 'dashboard.template.dart' as self;
@@ -36,25 +37,27 @@ void main() {
 
   setUp(() async {
     fixture = await testBed.create();
-    po = await new DashboardPO().resolve(fixture);
+    final context =
+        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = new DashboardPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);
 
-  test('title', () async {
-    expect(await po.title, 'Top Heroes');
+  test('title', () {
+    expect(po.title, 'Top Heroes');
   });
 
-  test('show top heroes', () async {
+  test('show top heroes', () {
     final expectedNames = ['Narco', 'Bombasto', 'Celeritas', 'Magneta'];
-    expect(await po.heroNames, expectedNames);
+    expect(po.heroNames, expectedNames);
   });
 
   test('select hero and navigate to detail', () async {
     final mockRouter = injector.get<MockRouter>(Router);
     clearInteractions(mockRouter);
     await po.selectHero(3);
-    final c = verify(mockRouter.navigate(typed(captureAny), typed(captureAny)));
+    final c = verify(mockRouter.navigate(captureAny, captureAny));
     expect(c.captured[0], '/heroes/15');
     expect(c.captured[1], isNavParams()); // empty params
     expect(c.captured.length, 2);
