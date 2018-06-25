@@ -21,16 +21,16 @@ NgTestFixture<DashboardComponent> fixture;
 DashboardPO po;
 
 @GenerateInjector([
-  const ValueProvider.forToken(appBaseHref, '/'),
-  const ClassProvider(Routes),
-  const ClassProvider(HeroService),
+  ValueProvider.forToken(appBaseHref, '/'),
+  ClassProvider(Routes),
+  ClassProvider(HeroService),
   routerProviders,
-  const ClassProvider(Router, useClass: MockRouter),
+  ClassProvider(Router, useClass: MockRouter),
 ])
 final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {
-  final injector = new InjectorProbe(rootInjector);
+  final injector = InjectorProbe(rootInjector);
   final testBed = NgTestBed.forComponent<DashboardComponent>(
       ng.DashboardComponentNgFactory,
       rootInjector: injector.factory);
@@ -38,8 +38,8 @@ void main() {
   setUp(() async {
     fixture = await testBed.create();
     final context =
-        new HtmlPageLoaderElement.createFromElement(fixture.rootElement);
-    po = new DashboardPO.create(context);
+        HtmlPageLoaderElement.createFromElement(fixture.rootElement);
+    po = DashboardPO.create(context);
   });
 
   tearDown(disposeAnyRunningTest);
